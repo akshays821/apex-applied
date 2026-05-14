@@ -92,6 +92,8 @@ const JobSchema = new mongoose.Schema(
         ],
       },
     ],
+    accentColor: { type: String, default: '#A5B2EB' },
+    interviewExperience: { type: String },
     notes: {
       type: String,
     },
@@ -103,7 +105,7 @@ const JobSchema = new mongoose.Schema(
         },
         type: {
           type: String,
-          enum: ["auto", "manual"],
+          enum: ["auto", "manual", "stage"],
           required: true,
         },
         createdAt: {

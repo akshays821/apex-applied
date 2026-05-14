@@ -14,7 +14,7 @@ export async function POST(req, { params }) {
 
     await dbConnect();
     const { id } = await params;
-    const { event } = await req.json();
+    const { event, type = "manual" } = await req.json();
 
     if (!event || event.trim() === "") {
       return new Response(
@@ -33,7 +33,7 @@ export async function POST(req, { params }) {
 
     job.timeline.push({
       event: event.trim(),
-      type: "manual",
+      type,
       createdAt: new Date(),
     });
 

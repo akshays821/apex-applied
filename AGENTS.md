@@ -52,28 +52,43 @@ You are a senior full-stack developer building **Apex Applied** — a dark-mode 
 
 ## UI Rules (Read MASTER.md First — These Are Defaults)
 
-```
-Background:   #0a0a0a
-Card surface: #111111
-Accent:       #F59E0B (amber)
+## UI Rules (Read MASTER.md First — These Are Defaults)
+
+PALETTE:
+Lime: #DDDE68
+Wisteria: #A5B2EB
+Orange: #DA935D
+Blue: #7CCDE5
+Purple: #676386
+Lavender: #9F9BDE
+
+BASE:
+Background: #2B2D3B
+Card surface: #494C65
+Sidebar: #1E2030
 Text primary: #FFFFFF
-Text muted:   #6B7280
+Text muted: #9CA3AF
 
-Card style:   backdrop-blur-md bg-white/5 border border-white/10
-              box-shadow: 4px 4px 0px #F59E0B (neo-brutalist offset)
+ACCENT COLOR PER JOB:
+Each job has accentColor field (assigned on creation, rotates through PALETTE).
+Use job.accentColor for: card left border, tab active indicator, timeline nodes.
+NEVER hardcode a single accent color for cards.
 
-Buttons:      bg-amber-500 text-black font-semibold
-              shadow: 3px 3px 0px rgba(0,0,0,0.8)
-              hover: translate-x-[-1px] translate-y-[-1px]
-              no border-radius OR rounded-sm maximum
+STATUS COLORS (for badges and bottom strip on cards):
+Active/On Track: #A5B2EB
+Overdue: #DDDE68
+Due Today: #DA935D
+Responded: #7CCDE5
+Rejected: #C0706A
+Offer: #6DBF8A
+Archived: #676386
 
-Typography:   font-family: Inter
-              Headings: font-bold tracking-tight text-white
-              Body: text-gray-300
-              Muted: text-gray-500
-```
-
----
+STAT BOXES: solid vivid fill (full background), dark text (#1E2030)
+SIDEBAR: backdrop-blur-xl bg-white/5 border-r border-white/10 (glassmorphism)
+CARDS: #494C65 surface, border-white/10, 4px left border = job.accentColor
+BUTTONS: #DDDE68 bg primary, #1E2030 text, hard shadow 3px 3px 0px rgba(0,0,0,0.5)
+FONT: DM Sans (replaces Inter everywhere — update layout.js import too)
+NO AMBER (#F59E0B) anywhere in the app.
 
 ## Framer Motion Rules (Strict — Do Not Deviate)
 

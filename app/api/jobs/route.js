@@ -58,10 +58,15 @@ export async function POST(req) {
 
     const body = await req.json();
 
+    const PALETTE = ['#DDDE68', '#A5B2EB', '#DA935D', '#7CCDE5', '#676386', '#9F9BDE'];
+    const jobCount = await Job.countDocuments({ userId: session.user.id });
+    const accentColor = PALETTE[jobCount % PALETTE.length];
+
     // Add initial timeline entry
     const newJobData = {
       ...body,
       userId: session.user.id,
+      accentColor,
       timeline: [
         {
           event: `Applied via ${body.platform}`,

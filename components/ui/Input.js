@@ -31,12 +31,9 @@ const Input = forwardRef(
           type={type}
           placeholder={placeholder}
           className={`
-            bg-[#111111] text-white placeholder-gray-500
-            border ${error ? "border-red-500" : "border-white/10"} 
-            rounded-sm px-3 py-2.5 w-full
-            focus:outline-none focus:border-amber-500 focus:ring-1 focus:ring-amber-500
-            transition-colors duration-200
-            appearance-none
+            w-full bg-transparent border-b ${error ? "border-red-500" : "border-white/15"}
+            focus:border-b-2 focus:border-[#A5B2EB] outline-none text-white 
+            placeholder-white/25 py-2 transition-all duration-200 rounded-none
           `}
           {...props}
         />

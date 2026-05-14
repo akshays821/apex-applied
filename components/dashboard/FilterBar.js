@@ -12,12 +12,12 @@ export default function FilterBar({ currentFilter, setFilter }) {
             key={filter}
             onClick={() => setFilter(filter)}
             className={`pb-3 text-sm font-semibold whitespace-nowrap transition-colors duration-200 relative ${
-              isActive ? "text-amber-500" : "text-gray-400 hover:text-white"
+              isActive ? "text-white" : "text-gray-400 hover:text-white"
             }`}
           >
             {filter}
             {isActive && (
-              <span className="absolute bottom-[-1px] left-0 w-full h-0.5 bg-amber-500 rounded-t-sm" />
+              <span className="absolute bottom-[-1px] left-0 w-full h-0.5 bg-[#DDDE68]" />
             )}
           </button>
         );

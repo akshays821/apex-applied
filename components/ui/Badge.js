@@ -2,24 +2,26 @@ import React from "react";
 
 export default function Badge({ variant = "active", children, className = "" }) {
   const baseStyles =
-    "inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-bold border-2 tracking-wide uppercase transition-transform duration-200";
+    "inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-bold border tracking-wider uppercase transition-transform duration-200 gap-1.5";
 
   const variantStyles = {
-    active: "bg-green-500/20 text-green-400 border-green-500",
-    overdue: "bg-red-500/20 text-red-400 border-red-500 shadow-[2px_2px_0px_rgba(239,68,68,0.5)]",
-    due_today: "bg-amber-500/20 text-amber-400 border-amber-500",
-    responded: "bg-blue-500/20 text-blue-400 border-blue-500",
-    rejected: "bg-gray-500/20 text-gray-400 border-gray-500",
-    archived: "bg-zinc-800/50 text-zinc-500 border-zinc-700",
-    going_cold: "bg-orange-500/20 text-orange-400 border-orange-500",
+    active: { style: "bg-[#A5B2EB]/10 text-[#A5B2EB] border-[#A5B2EB]/30", dot: "bg-[#A5B2EB]" },
+    overdue: { style: "bg-[#DDDE68]/10 text-[#DDDE68] border-[#DDDE68]/30", dot: "bg-[#DDDE68]" },
+    due_today: { style: "bg-[#DA935D]/10 text-[#DA935D] border-[#DA935D]/30", dot: "bg-[#DA935D]" },
+    responded: { style: "bg-[#7CCDE5]/10 text-[#7CCDE5] border-[#7CCDE5]/30", dot: "bg-[#7CCDE5]" },
+    rejected: { style: "bg-[#C0706A]/10 text-[#C0706A] border-[#C0706A]/30", dot: "bg-[#C0706A]" },
+    offer: { style: "bg-[#6DBF8A]/10 text-[#6DBF8A] border-[#6DBF8A]/30", dot: "bg-[#6DBF8A]" },
+    archived: { style: "bg-[#676386]/10 text-[#676386] border-[#676386]/30", dot: "bg-[#676386]" },
+    going_cold: { style: "bg-[#DA935D]/10 text-[#DA935D] border-[#DA935D]/30", dot: "bg-[#DA935D]" },
   };
 
-  const combinedClassName = `${baseStyles} ${
-    variantStyles[variant] || variantStyles.active
-  } ${className}`;
+  const currentVariant = variantStyles[variant] || variantStyles.active;
+
+  const combinedClassName = `${baseStyles} ${currentVariant.style} ${className}`;
 
   return (
     <span className={combinedClassName}>
+      <span className={`w-1.5 h-1.5 rounded-full ${currentVariant.dot}`} />
       {children}
     </span>
   );

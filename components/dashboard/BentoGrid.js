@@ -28,7 +28,6 @@ const itemVariants = {
 };
 
 export default function BentoGrid({ children }) {
-  // Convert children to array so we can map and wrap each in a motion.div
   const items = React.Children.toArray(children);
 
   return (
@@ -39,7 +38,7 @@ export default function BentoGrid({ children }) {
       className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
     >
       {items.map((child, i) => (
-        <motion.div key={i} variants={itemVariants} exit="exit" layout="position">
+        <motion.div key={i} variants={itemVariants} exit="exit">
           {child}
         </motion.div>
       ))}

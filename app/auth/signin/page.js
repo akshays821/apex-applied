@@ -3,8 +3,6 @@
 import React, { useEffect } from "react";
 import { signIn, useSession, SessionProvider } from "next-auth/react";
 import { useRouter } from "next/navigation";
-import Card from "@/components/ui/Card";
-import Button from "@/components/ui/Button";
 
 function SignInContent() {
   const { status } = useSession();
@@ -17,21 +15,24 @@ function SignInContent() {
   }, [status, router]);
 
   return (
-    <div className="min-h-screen bg-[#0a0a0a] flex flex-col justify-center items-center px-4 font-sans selection:bg-amber-500/30">
-      <Card className="w-full max-w-md p-8 sm:p-10 text-center !cursor-default !hover:translate-x-0 !hover:translate-y-0 !hover:shadow-[4px_4px_0px_#F59E0B]">
+    <div className="min-h-screen bg-[#2B2D3B] flex flex-col justify-center items-center px-4 font-sans relative overflow-hidden">
+      {/* Background radial gradient */}
+      <div className="absolute inset-0 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-[radial-gradient(circle,rgba(165,178,235,0.03)_0%,transparent_60%)] pointer-events-none" />
+
+      {/* Card */}
+      <div className="w-full max-w-sm bg-[#494C65] border border-white/10 p-10 text-center relative z-10 shadow-[8px_8px_0px_rgba(0,0,0,0.3)]">
         <div className="mb-10">
-          <h1 className="text-3xl font-bold tracking-tighter text-white mb-2">
-            Apex<span className="text-amber-500">Applied</span>
+          <h1 className="text-2xl font-bold tracking-tight text-white mb-2">
+            Apex<span className="text-[#A5B2EB]">Applied</span>
           </h1>
           <p className="text-gray-400 text-sm">
             Track every application. Follow up like a pro.
           </p>
         </div>
 
-        <Button
+        <button
           onClick={() => signIn("google", { callbackUrl: "/dashboard" })}
-          className="w-full flex items-center justify-center gap-3 py-3"
-          size="lg"
+          className="w-full flex items-center justify-center gap-3 py-3 bg-[#DDDE68] text-[#1E2030] font-semibold shadow-[3px_3px_0px_rgba(0,0,0,0.5)] hover:-translate-y-[1px] hover:shadow-[4px_4px_0px_rgba(0,0,0,0.5)] transition-all"
         >
           {/* Google Icon SVG */}
           <svg className="w-5 h-5" viewBox="0 0 24 24">
@@ -53,8 +54,8 @@ function SignInContent() {
             />
           </svg>
           Continue with Google
-        </Button>
-      </Card>
+        </button>
+      </div>
     </div>
   );
 }
